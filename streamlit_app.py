@@ -2,8 +2,7 @@
 import streamlit as st
 from snowflake.snowpark.functions import col
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie!:cup_with_straw:")
@@ -25,6 +24,9 @@ ingredients_list = st.multiselect(
     , my_dataframe
     , max_selections=5
 )
+
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 if ingredients_list:
     # st.write(ingredients_list);
